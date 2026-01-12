@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morning Brew Collective | Singapore's Modern Kopitiam</title>
+  <meta name="description" content="Experience the perfect blend of tradition and modernity. Crafted with care since 1973, serving Singapore's best kopi and toast.">
+  <meta name="theme-color" content="#FFF9F0">
+  
+  <!-- Preload critical resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/main.css">
+  
+  <script src="js/main.js" defer></script>
+  <script src="js/cart-system.js" defer></script>
+  <script src="js/accessibility.js" defer></script>
+  
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/js/service-worker.js')
+          .then(reg => console.log('SW registered'))
+          .catch(err => console.log('SW registration failed', err));
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ===== Header with Responsive Navigation ===== -->
+  <header class="header" role="banner">
+    <div class="header-container container">
+      <div class="header-left">
+        <a href="/" class="logo" aria-label="Morning Brew Collective Home">
+          <span class="logo-text">Morning Brew</span>
+          <span class="logo-subtext">Collective</span>
+        </a>
+      </div>
+      
+      <div class="header-center">
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="#menu" class="nav-link">Menu</a></li>
+            <li><a href="#story" class="nav-link">Heritage</a></li>
+            <li><a href="#location" class="nav-link">Visit</a></li>
+            <li><a href="#order" class="nav-link">Order</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div class="header-right">
+        <div class="header-actions">
+            <button class="language-toggle" aria-label="Select language">
+                <span class="current-lang">English</span>
+                <span class="lang-icon">🌐</span>
+            </button>
+            <div class="cart-icon" aria-label="Shopping cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 10L7 2M7 2L9 10M7 2L3 5H21L17 10M7 13H17M7 17H14"></path>
+                </svg>
+                <span class="cart-count">0</span>
+            </div>
+            <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+                <span class="menu-icon-line"></span>
+                <span class="menu-icon-line"></span>
+                <span class="menu-icon-line"></span>
+            </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+      <button type="button" class="mobile-menu-close" aria-label="Close menu">×</button>
+      <ul class="mobile-nav-list">
+        <li><a href="#menu" class="mobile-nav-link">Menu</a></li>
+        <li><a href="#story" class="mobile-nav-link">Heritage</a></li>
+        <li><a href="#location" class="mobile-nav-link">Visit</a></li>
+        <li><a href="#order" class="mobile-nav-link">Order</a></li>
+      </ul>
+      <div class="mobile-menu-actions">
+        <a href="#order" class="cta-primary mobile-cta">Order Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+      <!-- ===== HERO SECTION ===== -->
+    <section class="hero scroll-animated" id="hero">
+        <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+            <span class="location-badge" style="margin-bottom: var(--space-4); display: inline-block;">Est. 1973</span>
+            </div>
+            <h1 class="hero-title">
+            Where Singapore's <span style="color: var(--color-honey-gold);">Morning Ritual</span> Begins
+            </h1>
+            <p class="hero-subtitle">
+            Experience the perfect blend of tradition and modernity in every cup. Crafted with care since 1973, our coffee tells the story of Singapore's kopitiam heritage.
+            </p>
+            <div class="hero-buttons">
+            <a href="#menu" class="cta-primary">Explore Our Menu</a>
+            <a href="#order" class="cta-secondary">Order Online</a>
+            </div>
+        </div>
+        <div class="coffee-steam">
+            <div class="steam-particle"></div>
+            <div class="steam-particle"></div>
+            <div class="steam-particle"></div>
+            <div class="steam-particle"></div>
+        </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+        <!-- SVG coffee cup silhouette -->
+        <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+            <path d="M60 240C60 220 80 200 100 200C120 200 140 220 140 240C140 260 120 280 100 280C80 280 60 260 60 240Z" fill="none" stroke="#D4A017" stroke-width="3" stroke-dasharray="5,5" opacity="0.3"/>
+            <path d="M80 200C80 180 90 160 100 160C110 160 120 180 120 200" fill="none" stroke="#D4A017" stroke-width="3" stroke-dasharray="5,5" opacity="0.3"/>
+            <path d="M90 60C90 40 100 20 110 20C120 20 130 40 130 60L125 150C125 160 115 170 105 170C95 170 85 160 85 150L90 60Z" fill="none" stroke="#D4A017" stroke-width="3" stroke-dasharray="5,5" opacity="0.3"/>
+        </svg>
+        </div>
+    </section>
+
+    <!-- ===== FEATURED MENU SECTION ===== -->
+    <section class="featured-menu scroll-animated" id="menu">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: var(--space-8);">
+            <h2 class="section-title">Our Signature Brews</h2>
+            <p class="section-subtitle">Crafted with precision using beans roasted in-house since 1973</p>
+            </div>
+            
+            <div class="menu-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="coffee">Coffee</button>
+            <button class="filter-btn" data-filter="tea">Tea</button>
+            <button class="filter-btn" data-filter="pastries">Pastries</button>
+            </div>
+            
+            <div class="menu-grid">
+            <!-- Coffee Items -->
+            <div class="menu-item card scroll-animated" data-category="coffee">
+                <div class="menu-item-image">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#D4A017" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                </div>
+                <div class="menu-item-content">
+                <div class="menu-item-header">
+                    <h3 class="menu-item-title">Traditional Kopi</h3>
+                    <span class="menu-item-price">$3.50</span>
+                </div>
+                <p class="menu-item-description">Strong coffee brewed with margarine and sugar, served with evaporated milk - the authentic Singaporean way.</p>
+                <div class="menu-item-meta">
+                    <span class="menu-item-tag">House Specialty</span>
+                    <span class="menu-item-spice">★★☆</span>
+                </div>
+                <button class="add-to-cart-btn" data-product="kopi" data-price="3.50">
+                    Add to Cart <span class="cart-icon">+</span>
+                </button>
+                </div>
+            </div>
+            
+            <div class="menu-item card scroll-animated" data-category="coffee">
+                <div class="menu-item-image">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#D4A017" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                </div>
+                <div class="menu-item-content">
+                <div class="menu-item-header">
+                    <h3 class="menu-item-title">Kopi-C</h3>
+                    <span class="menu-item-price">$3.20</span>
+                </div>
+                <p class="menu-item-description">Coffee with evaporated milk and sugar. Creamy, sweet, and perfectly balanced for your morning ritual.</p>
+                <div class="menu-item-meta">
+                    <span class="menu-item-tag">Best Seller</span>
+                    <span class="menu-item-spice">★☆☆</span>
+                </div>
+                <button class="add-to-cart-btn" data-product="kopi-c" data-price="3.20">
+                    Add to Cart <span class="cart-icon">+</span>
+                </button>
+                </div>
+            </div>
+            
+            <!-- Tea Items -->
+            <div class="menu-item card scroll-animated" data-category="tea">
+                <div class="menu-item-image">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#D4A017" stroke-width="1.5"><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                </div>
+                <div class="menu-item-content">
+                <div class="menu-item-header">
+                    <h3 class="menu-item-title">Teh Tarik</h3>
+                    <span class="menu-item-price">$3.20</span>
+                </div>
+                <p class="menu-item-description">Pulled tea with condensed milk. Smooth, creamy, and served with that signature frothy top.</p>
+                <div class="menu-item-meta">
+                    <span class="menu-item-tag">Malaysian Heritage</span>
+                    <span class="menu-item-spice">☆☆☆</span>
+                </div>
+                <button class="add-to-cart-btn" data-product="teh-tarik" data-price="3.20">
+                    Add to Cart <span class="cart-icon">+</span>
+                </button>
+                </div>
+            </div>
+            
+            <!-- Pastries -->
+            <div class="menu-item card scroll-animated" data-category="pastries">
+                <div class="menu-item-image">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#D4A017" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                </div>
+                <div class="menu-item-content">
+                <div class="menu-item-header">
+                    <h3 class="menu-item-title">Kaya Toast</h3>
+                    <span class="menu-item-price">$4.50</span>
+                </div>
+                <p class="menu-item-description">Crispy toast with house-made coconut jam and butter. Served with soft-boiled eggs and dark soy sauce.</p>
+                <div class="menu-item-meta">
+                    <span class="menu-item-tag">Breakfast Classic</span>
+                    <span class="menu-item-spice">☆☆☆</span>
+                </div>
+                <button class="add-to-cart-btn" data-product="kaya-toast" data-price="4.50">
+                    Add to Cart <span class="cart-icon">+</span>
+                </button>
+                </div>
+            </div>
+            
+            <div class="menu-item card scroll-animated" data-category="pastries">
+                <div class="menu-item-image">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#D4A017" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle></svg>
+                </div>
+                <div class="menu-item-content">
+                <div class="menu-item-header">
+                    <h3 class="menu-item-title">Roti Prata</h3>
+                    <span class="menu-item-price">$5.00</span>
+                </div>
+                <p class="menu-item-description">Flaky, crispy flatbread served with curry dipping sauce. Perfect pairing with any hot beverage.</p>
+                <div class="menu-item-meta">
+                    <span class="menu-item-tag">Indian Influence</span>
+                    <span class="menu-item-spice">★★☆</span>
+                </div>
+                <button class="add-to-cart-btn" data-product="roti-prata" data-price="5.00">
+                    Add to Cart <span class="cart-icon">+</span>
+                </button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HERITAGE STORY SECTION ===== -->
+    <section class="heritage-story scroll-animated" id="story">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: var(--space-8);">
+            <h2 class="section-title">Our Kopitiam Heritage</h2>
+            <p class="section-subtitle">Preserving Singapore's coffee culture since 1973</p>
+            </div>
+            
+            <div class="heritage-content">
+            <div class="heritage-text">
+                <p class="heritage-paragraph">
+                <span class="drop-cap">I</span>n 1973, Uncle Lim opened his first kopitiam stall at Tiong Bahru Market. With nothing but a trusty coffee sock, a worn marble table, and recipes passed down through generations, he began serving what would become Singapore's most beloved morning ritual.
+                </p>
+                
+                <div class="heritage-highlight">
+                <blockquote>
+                    "The kopitiam is more than just a place to drink coffee. It's where lawyers and laborers sit side by side, where deals are made and friendships are forged over steaming cups of kopi."
+                    <footer>— Uncle Lim, Founder</footer>
+                </blockquote>
+                </div>
+                
+                <p class="heritage-paragraph">
+                Today, Morning Brew Collective honors that legacy. Our coffee beans are still roasted in small batches using Uncle Lim's original 1970s roaster. Our kaya is made fresh daily with coconut from the same suppliers his family trusted for decades. Every cup tells a story of Singapore's multicultural soul.
+                </p>
+                
+                <div class="heritage-values">
+                <div class="value-item">
+                    <h3 class="value-title">☕ Authentic Recipes</h3>
+                    <p class="value-description">Every brew follows Uncle Lim's handwritten recipe book from 1973</p>
+                </div>
+                <div class="value-item">
+                    <h3 class="value-title">🤝 Community First</h3>
+                    <p class="value-description">We've served three generations of Singaporean families</p>
+                </div>
+                <div class="value-item">
+                    <h3 class="value-title">🌱 Sustainable Sourcing</h3>
+                    <p class="value-description">Direct partnerships with ASEAN coffee farmers since 1998</p>
+                </div>
+                </div>
+            </div>
+            
+            <div class="heritage-visual">
+                <div class="gallery-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23D4A017' opacity='0.2'/><circle cx='200' cy='150' r='80' fill='%23B48A15' opacity='0.3'/><text x='200' y='165' font-family='serif' font-size='24' fill='%235A4010' text-anchor='middle'>1973</text></svg>" alt="Original kopitiam stall, 1973" class="gallery-image">
+                    <div class="gallery-caption">Uncle Lim's first stall at Tiong Bahru Market</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23D4A017' opacity='0.2'/><path d='M100 100L300 100L300 200L100 200Z' fill='%23B48A15' opacity='0.4'/><text x='200' y='165' font-family='serif' font-size='24' fill='%235A4010' text-anchor='middle'>1980s</text></svg>" alt="Ceramic cups collection" class="gallery-image">
+                    <div class="gallery-caption">Our collection of vintage ceramic cups</div>
+                </div>
+            </div>
+            </div>
+            
+            <div class="heritage-callout">
+            <div class="callout-content">
+                <h3 class="callout-title">Join Our Morning Tradition</h3>
+                <p class="callout-text">Experience the authentic kopitiam culture that has shaped Singapore's identity. Every visit includes a complimentary taste of our signature kaya.</p>
+                <a href="#order" class="cta-secondary">Reserve Your Table</a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LOCATION SECTION ===== -->
+    <section class="location-section scroll-animated" id="location">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: var(--space-8);">
+            <h2 class="section-title">Find Your Nearest Kopitiam</h2>
+            <p class="section-subtitle">Three locations across Singapore, each with its own unique character</p>
+            </div>
+            
+            <div class="locations-grid">
+            <div class="location-card card scroll-animated">
+                <div class="location-header">
+                <h3 class="location-title">Tiong Bahru Original</h3>
+                <span class="location-badge">Flagship</span>
+                </div>
+                <div class="location-image">
+                <div class="location-pattern" aria-hidden="true"></div>
+                </div>
+                <div class="location-details">
+                <p class="location-address">55 Tiong Bahru Road, #01-55, Singapore 160055</p>
+                <p class="location-hours">Daily: 7:00 AM - 8:00 PM</p>
+                <div class="location-features">
+                    <span class="feature-item">🍳 Full Breakfast</span>
+                    <span class="feature-item">♿ Accessible</span>
+                    <span class="feature-item">🅿️ Parking</span>
+                </div>
+                </div>
+                <div class="location-actions">
+                <a href="https://maps.google.com" target="_blank" rel="noopener" class="location-link">Get Directions →</a>
+                </div>
+            </div>
+            
+            <div class="location-card card scroll-animated">
+                <div class="location-header">
+                <h3 class="location-title">Joo Chiat Heritage</h3>
+                <span class="location-badge">Peranakan</span>
+                </div>
+                <div class="location-image">
+                <div class="location-pattern" aria-hidden="true"></div>
+                </div>
+                <div class="location-details">
+                <p class="location-address">48 Joo Chiat Road, Singapore 427370</p>
+                <p class="location-hours">Daily: 8:00 AM - 9:00 PM</p>
+                <div class="location-features">
+                    <span class="feature-item">🎨 Heritage Decor</span>
+                    <span class="feature-item">📸 Photo Spot</span>
+                    <span class="feature-item">🎵 Weekend Live</span>
+                </div>
+                </div>
+                <div class="location-actions">
+                <a href="https://maps.google.com" target="_blank" rel="noopener" class="location-link">Get Directions →</a>
+                </div>
+            </div>
+            
+            <div class="location-card card scroll-animated">
+                <div class="location-header">
+                <h3 class="location-title">Jurong Lake Modern</h3>
+                <span class="location-badge">Contemporary</span>
+                </div>
+                <div class="location-image">
+                <div class="location-pattern" aria-hidden="true"></div>
+                </div>
+                <div class="location-details">
+                <p class="location-address">101 Jurong Lake Street, #01-12, Singapore 648321</p>
+                <p class="location-hours">Daily: 7:30 AM - 10:00 PM</p>
+                <div class="location-features">
+                    <span class="feature-item">💻 Co-working</span>
+                    <span class="feature-item">⚡ Fast Charging</span>
+                    <span class="feature-item">🌿 Green Terrace</span>
+                </div>
+                </div>
+                <div class="location-actions">
+                <a href="https://maps.google.com" target="_blank" rel="noopener" class="location-link">Get Directions →</a>
+                </div>
+            </div>
+            </div>
+            
+            <div class="map-container">
+            <div class="map-placeholder" aria-label="Interactive map showing our three Singapore locations">
+                <div class="map-overlay">
+                <h3 style="margin-bottom: var(--space-2);">Interactive Store Locator</h3>
+                <p style="font-size: var(--text-sm);">Click on any location marker to view details and get directions</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ORDER SECTION ===== -->
+    <section class="order-section scroll-animated" id="order">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: var(--space-8);">
+            <h2 class="section-title">Place Your Order</h2>
+            <p class="section-subtitle">Online ordering available for pickup or islandwide delivery</p>
+            </div>
+            
+            <div class="order-container">
+            <div class="order-form-container">
+                <form id="order-form" class="order-form" novalidate>
+                <div class="form-group">
+                    <label class="form-label">Order Type</label>
+                    <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" id="pickup" name="order-type" value="pickup" checked>
+                        <span>Pickup (Free)</span>
+                    </label>
+                    
+                    <label class="radio-label">
+                        <input type="radio" id="delivery" name="order-type" value="delivery">
+                        <span>Delivery ($3.50)</span>
+                    </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location-select" class="form-label">Pickup Location</label>
+                    <select id="location-select" name="location-select" class="form-select" required>
+                    <option value="">Select a location</option>
+                    <option value="tiong-bahru">Tiong Bahru Original (55 Tiong Bahru Road)</option>
+                    <option value="joo-chiat">Joo Chiat Heritage (48 Joo Chiat Road)</option>
+                    <option value="jurong-lake">Jurong Lake Modern (101 Jurong Lake Street)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group delivery-only">
+                    <label for="delivery-address" class="form-label">Delivery Address</label>
+                    <input type="text" id="delivery-address" name="delivery-address" class="form-input" placeholder="Enter your full address">
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+                    <div class="form-group">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-input" required placeholder="e.g., Tan Wei Ming">
+                    </div>
+                    
+                    <div class="form-group">
+                    <label for="phone" class="form-label">Mobile Number</label>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-weight: bold; color: var(--color-ui-brown);">+65</span>
+                        <input type="tel" id="phone" name="phone" class="form-input" required placeholder="8123 4567">
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" required placeholder="e.g., name@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="time-preference" class="form-label">Preferred Time</label>
+                    <select id="time-preference" name="time-preference" class="form-select" required>
+                    <option value="">Select time</option>
+                    <option value="asap">As soon as possible</option>
+                    <option value="breakfast">Breakfast (7:00-10:00 AM)</option>
+                    <option value="lunch">Lunch (11:00 AM-2:00 PM)</option>
+                    <option value="afternoon">Afternoon (2:00-5:00 PM)</option>
+                    <option value="dinner">Dinner (5:00-8:00 PM)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="special-instructions" class="form-label">Special Instructions</label>
+                    <textarea id="special-instructions" name="special-instructions" class="form-textarea" placeholder="e.g., No sugar, extra kaya on toast, etc."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="halal-preference" name="halal-preference">
+                        <span><span style="color: var(--color-ui-coral);">☪</span> Halal-certified preparation required</span>
+                    </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn-submit-order">
+                    <span class="btn-text">Place Order</span>
+                    <span class="btn-spinner" aria-hidden="true" style="display: none;"></span>
+                    </button>
+                </div>
+                </form>
+            </div>
+            
+            <div class="order-summary-container">
+                <div class="order-summary">
+                <h3 class="summary-title">Order Summary</h3>
+                
+                <div class="summary-items">
+                    <div class="summary-item">
+                    <span class="item-label">Items in Cart:</span>
+                    <span class="item-count">0 items</span>
+                    </div>
+                    <div class="summary-item">
+                    <span class="item-label">Subtotal:</span>
+                    <span class="item-amount">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                    <span class="item-label">GST (9%):</span>
+                    <span class="item-amount">$0.00</span>
+                    </div>
+                </div>
+                
+                <div class="summary-total">
+                    <span class="total-label">Total Amount:</span>
+                    <span class="total-amount">$0.00</span>
+                </div>
+                
+                <div class="summary-note" style="margin-top: var(--space-4); font-size: var(--text-sm);">
+                    <p class="payment-note" style="margin-bottom: var(--space-2);">Payment methods available:</p>
+                    <div class="payment-options">
+                    <span class="payment-option" aria-label="PayNow QR code payment">📱 PayNow QR</span>
+                    <span class="payment-option" aria-label="GrabPay mobile payment">📱 GrabPay</span>
+                    <span class="payment-option" aria-label="Credit card payment">💳 Visa/Mastercard</span>
+                    </div>
+                </div>
+                
+                </div>
+                
+                <div class="order-guarantee">
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">⏰</div>
+                    <p class="guarantee-text">Delivery within 45 minutes</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">✅</div>
+                    <p class="guarantee-text">100% satisfaction guarantee</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+      <div class="container">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-8);">
+              <div>
+                  <h3 style="color: var(--color-dawn-cream); margin-bottom: var(--space-4);">Morning Brew Collective</h3>
+                  <p style="opacity: 0.8; font-size: var(--text-sm);">
+                      Authentic Singaporean kopitiam experience since 1973. Preserving heritage, one cup at a time.
+                  </p>
+              </div>
+              <div>
+                  <h4 style="color: var(--color-honey-gold); font-size: var(--text-base);">Quick Links</h4>
+                  <ul style="list-style: none; opacity: 0.9;">
+                      <li style="margin-bottom: var(--space-2);"><a href="#menu">Menu</a></li>
+                      <li style="margin-bottom: var(--space-2);"><a href="#story">Our Heritage</a></li>
+                      <li style="margin-bottom: var(--space-2);"><a href="#location">Locations</a></li>
+                      <li style="margin-bottom: var(--space-2);"><a href="#order">Order Online</a></li>
+                  </ul>
+              </div>
+              <div>
+                  <h4 style="color: var(--color-honey-gold); font-size: var(--text-base);">Contact</h4>
+                  <p style="opacity: 0.8; font-size: var(--text-sm); margin-bottom: var(--space-2);">hello@morningbrew.sg</p>
+                  <p style="opacity: 0.8; font-size: var(--text-sm);">+65 6789 0123</p>
+              </div>
+          </div>
+          <div style="margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: var(--text-xs); opacity: 0.6;">
+              &copy; 2026 Morning Brew Collective. All rights reserved. Designed with Tropical Modernism.
+          </div>
+      </div>
+  </footer>
+
+  <!-- ===== CART OVERLAY ===== -->
+  <div id="cart-overlay" class="cart-overlay" aria-hidden="true">
+    <div class="cart-container">
+      <div class="cart-header">
+        <h3 class="cart-title">Your Order <span class="cart-count-badge">0</span></h3>
+        <button type="button" class="cart-close" aria-label="Close cart">×</button>
+      </div>
+      
+      <div class="cart-items">
+        <div class="cart-empty">
+          <div class="cart-empty-icon">☕</div>
+          <p class="cart-empty-text">Your cart is empty. Start adding items from our menu!</p>
+        </div>
+        <ul class="cart-items-list" aria-live="polite"></ul>
+      </div>
+      
+      <div class="cart-summary">
+        <div class="cart-subtotal">
+          <span class="subtotal-label">Subtotal:</span>
+          <span class="subtotal-amount">$0.00</span>
+        </div>
+        <div class="cart-gst">
+          <span class="gst-label">GST (9%):</span>
+          <span class="gst-amount">$0.00</span>
+        </div>
+        <div class="cart-total">
+          <span class="total-label">Total:</span>
+          <span class="total-amount">$0.00</span>
+        </div>
+      </div>
+      
+      <div class="cart-actions">
+        <button class="btn-clear-cart">Clear Cart</button>
+        <button class="btn-checkout" disabled>Proceed to Checkout</button>
+      </div>
+      
+      <div class="cart-footer">
+        <p class="cart-note">All prices include halal certification and sustainable sourcing fees.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CART ITEM TEMPLATE ===== -->
+  <template id="cart-item-template">
+    <li class="cart-item">
+      <div class="cart-item-details">
+        <h4 class="cart-item-name"></h4>
+        <div class="cart-item-meta">
+          <span class="cart-item-quantity">1x</span>
+          <span class="cart-item-price">$0.00</span>
+        </div>
+      </div>
+      <div class="cart-item-actions">
+        <button class="quantity-btn minus" aria-label="Decrease quantity">−</button>
+        <span class="quantity-display">1</span>
+        <button class="quantity-btn plus" aria-label="Increase quantity">+</button>
+        <button class="remove-item" aria-label="Remove item">×</button>
+      </div>
+    </li>
+  </template>
+
+</body>
+</html>
