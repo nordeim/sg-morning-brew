@@ -48,14 +48,14 @@ graph TD
     
     subgraph "Browser APIs & State"
         JS_Main -->|Observer API| Animations[Scroll Animations]
-        JS_Cart -->|Persist| LocalStorage[(LocalStorage)]
+        JS_Cart -->|Persist| LocalStorage[("LocalStorage")]
         JS_Cart -->|Validate| Forms[Order Form]
         Browser -->|Cache| SW[Service Worker]
     end
     
     subgraph "Mock Backend / Integration Points"
         JS_Cart -.->|Submit| API[API Gateway Stub]
-        API -.-> Payment[Payment Gateway (Stripe/PayNow)]
+        API -.-> Payment["Payment Gateway (Stripe/PayNow)"]
     end
 ```
 
