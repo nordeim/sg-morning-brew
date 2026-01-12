@@ -41,9 +41,9 @@ graph TD
         HTML --> JS_Main[js/main.js]
         HTML --> JS_Cart[js/cart-system.js]
         
-        CSS -->| "@layer" | Tokens[Design Tokens]
-        CSS -->| "@layer" | Base[Base Styles]
-        CSS -->| "@layer" | Components[UI Components]
+        CSS -- "@layer" --> Tokens[Design Tokens]
+        CSS -- "@layer" --> Base[Base Styles]
+        CSS -- "@layer" --> Components[UI Components]
     end
     
     subgraph "Browser APIs & State"
